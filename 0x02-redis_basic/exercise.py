@@ -32,7 +32,7 @@ class Cache:
         return key
 
     def get(self, key: str, fn: Callable = None) -> \
-        Union[str, bytes, int, float]:
+            Union[str, bytes, int, float]:
         """
         Retrieves a value from a redis data store, in orginal form
         """
