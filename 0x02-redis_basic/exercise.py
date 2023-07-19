@@ -63,7 +63,7 @@ def replay(fn: Callable) -> None:
     # display count
     print('{} was called {} time{}{}'.
           format(func, count, 's' if count != 1 else '',
-                ':' if count > 0 else ''))
+                 ':' if count > 0 else ''))
 
     # display function call history
     for key, val in zip(rd_obj.lrange(inputs_key, 0, -1),
