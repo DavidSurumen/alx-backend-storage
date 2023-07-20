@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Advanced Task Module -Implementing an expiring web cache and tracker
+Advanced Task Module - Implementing an expiring web cache and tracker
 """
 import requests
 import redis
@@ -22,7 +22,7 @@ def track_requests(func: Callable) -> Callable:
 
 
 def data_cacher(func: Callable) -> Callable:
-    """decorator to cache reponse to url requests."""
+    """decorator that caches response to url requests."""
     @functools.wraps(func)
     def wrapper(url):
         # cache server response
@@ -34,11 +34,12 @@ def data_cacher(func: Callable) -> Callable:
     return wrapper
 
 
-@data_cacher
 @track_requests
+@data_cacher
 def get_page(url: str) -> str:
     """
     obtains HTML content of a particular URL and returns it.
     """
+    # url to simulate a slow reponse: https://httpstat.us/200?sleep=7000'
     res = requests.get(url)
     return res.text
